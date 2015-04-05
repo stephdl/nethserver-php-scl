@@ -1,0 +1,33 @@
+#!/usr/bin/perl -w
+
+use esmith::Build::CreateLinks qw(:all);
+
+my $event = 'nethserver-php-scl-update';
+
+event_actions($event,
+'initialize-default-databases' => '00');
+
+
+    templates2events("/opt/remi/php54/root/etc/php.ini", $event);
+    templates2events("/opt/remi/php55/root/etc/php.ini", $event);
+    templates2events("/opt/remi/php56/root/etc/php.ini", $event);
+    templates2events("/etc/httpd/conf/httpd.conf", $event);
+    templates2events("/etc/httpd/conf.d/php.conf", $event);
+    templates2events("/etc/httpd/conf.d/php54-php.conf", $event);
+    templates2events("/etc/httpd/conf.d/php55-php.conf", $event);
+    templates2events("/etc/httpd/conf.d/php56-php.conf", $event);
+    templates2events("/etc/php.ini", $event);
+
+    event_services($event, 'httpd' => 'reload');
+
+for my $event (qw(nethserver-php-update nethserver-php-save ))
+{
+    templates2events("/opt/remi/php54/root/etc/php.ini", $event);
+    templates2events("/opt/remi/php55/root/etc/php.ini", $event);
+    templates2events("/opt/remi/php56/root/etc/php.ini", $event);
+    templates2events("/etc/httpd/conf.d/php.conf", $event);
+    templates2events("/etc/httpd/conf.d/php54-php.conf", $event);
+    templates2events("/etc/httpd/conf.d/php55-php.conf", $event);
+    templates2events("/etc/httpd/conf.d/php56-php.conf", $event);
+    event_services($event, 'httpd' => 'reload');
+}
