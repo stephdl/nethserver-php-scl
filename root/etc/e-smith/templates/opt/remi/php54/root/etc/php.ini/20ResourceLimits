@@ -3,8 +3,8 @@ max_execution_time                     = {
     $OUT .= "$et";
 }
 memory_limit                           = {
-    my $ml = $php54{MemoryLimit} || "128M";
-    $OUT .= "$ml";
+    my $ml = $php54{MemoryLimit} || "125";
+    $OUT .= "$ml"."M";
 }
 ;added by stephdl see $php54{MaxInputTime}
 max_input_time                     = {

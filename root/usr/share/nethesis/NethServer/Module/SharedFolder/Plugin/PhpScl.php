@@ -24,7 +24,7 @@ class  PhpScl  extends \Nethgui\Controller\Table\RowPluginAction
      
         $schema = array(
             array('Status', Validate::SERVICESTATUS, Table::FIELD, 'HttpStatus'),
-            array('PhpVersion', $this->createValidator()->memberOf('default','Php54','Php55','Php56'), Table::FIELD, 'PhpVersion'),
+            array('PhpVersion', $this->createValidator()->memberOf('default','php54','php55','php56'), Table::FIELD, 'PhpVersion'),
         );
 
         $this
@@ -36,10 +36,4 @@ class  PhpScl  extends \Nethgui\Controller\Table\RowPluginAction
         parent::initialize();
     }
 
-
-//    public function prepareView(\Nethgui\View\ViewInterface $view)
-//    {
-//        parent::prepareView($view);
-
-//    }
 }

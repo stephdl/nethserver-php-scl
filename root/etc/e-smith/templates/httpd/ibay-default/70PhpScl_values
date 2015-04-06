@@ -5,7 +5,7 @@ my $accounts = esmith::AccountsDB->open_ro;
 my $PhpVersion = $accounts->get_prop("$Name",'PhpVersion') || 'default';
 
 
-if ($PhpVersion eq 'Php54') 
+if ($PhpVersion eq 'php54') 
     {
     # write the configuration
     $OUT .= "\n";
@@ -15,7 +15,7 @@ if ($PhpVersion eq 'Php54')
     $OUT .= "\n";
     }
 		
-elsif ($PhpVersion eq 'Php55')
+elsif ($PhpVersion eq 'php55')
     {
     # write the configuration
     $OUT .= "\n";
@@ -25,7 +25,7 @@ elsif ($PhpVersion eq 'Php55')
     $OUT .= "\n";
     }
 
-elsif ($PhpVersion eq 'Php56')
+elsif ($PhpVersion eq 'php56')
     {
     # write the configuration
     $OUT .= "\n";
