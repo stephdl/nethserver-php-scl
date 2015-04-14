@@ -1,5 +1,5 @@
 <?php
-//echo $view->header()->setAttribute('template', $T('PhpAdjustableValues_Title'));
+echo $view->header()->setAttribute('template', $T('PhpDefaultAdjustableValues_Title'));
 
 echo $view->panel()
 
