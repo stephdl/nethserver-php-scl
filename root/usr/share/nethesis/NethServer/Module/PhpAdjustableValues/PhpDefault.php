@@ -11,15 +11,9 @@ class PhpDefault extends \Nethgui\Controller\AbstractController
 {
 
 
-    public function setDefaultValues($parameterName, $value)
-    {
-        $this->defaultValues[$parameterName] = $value;
-        return $this;
-    }
-
     public function initialize()
     {
-$executiontime = $this->createValidator()->memberOf('30','60','120','180','240','300','360','420','480','540','600');
+    $executiontime = $this->createValidator()->memberOf('30','60','120','180','240','300','360','420','480','540','600');
 
     $this->declareParameter('AllowUrlFopen', $this->createValidator()->memberOf('0','1'), array('configuration', 'php', 'AllowUrlFopen'));
     $this->declareParameter('MaxExecutionTime',  $executiontime , array('configuration', 'php', 'MaxExecutionTime'));
