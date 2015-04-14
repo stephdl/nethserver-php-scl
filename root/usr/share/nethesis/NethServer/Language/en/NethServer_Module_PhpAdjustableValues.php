@@ -15,7 +15,6 @@ $L['Maximum post size (${0})'] = 'Maximum size of post data allowed (${0})';
 $L['Maximum execution time (${0})'] = 'Maximum execution time of scripts (${0})';
 $L['Maximum number of files (${0})'] = 'Maximum number of uploaded files (${0})';
 $L['Maximum input time (${0})'] = 'Maximum time to parse input data (${0})';
-
 $L['MemoryLimit_label'] = 'Memory Limit Warning';
 $L['MemoryLimitLabelMustBeSuperiorThanPostMaxSize'] = 'The Maximum of available memory must be superior than the Maximum size of post data allowed';
 $L['PostMaxSize_label'] = 'Post Maximum Limit Warning';
@@ -23,6 +22,8 @@ $L['PostMaxSizeMustBeSuperiorThanUpMaxFileSize'] = 'The Maximum size of post dat
 $L['default'] = 'default';
 $L['${0} MB'] = '${0} Megabytes';
 $L['${0} seconds'] = '${0} seconds';
-
-
-
+$L['Php2Httpd_Title'] = 'Php Apache version';
+$L['PhpVersion_default_label'] = 'Default Php Version';
+$L['PhpVersion_php54_label'] = 'Php54 Version';
+$L['PhpVersion_php55_label'] = 'Php55 Version';
+$L['PhpVersion_php56_label'] = 'Php55 Version';

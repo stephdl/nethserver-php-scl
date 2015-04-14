@@ -21,13 +21,6 @@ class PhpDefault extends \Nethgui\Controller\AbstractController
     $this->declareParameter('PostMaxSize', Validate::POSITIVE_INTEGER, array('configuration', 'php', 'PostMaxSize'));
     $this->declareParameter('UploadMaxFilesize', Validate::POSITIVE_INTEGER, array('configuration', 'php', 'UploadMaxFilesize'));
 
-    $this->setDefaultValues('MaxExecutionTime', '30');
-    $this->setDefaultValues('MemoryLimit', '32');
-    $this->setDefaultValues('PostMaxSize', '8');
-    $this->setDefaultValues('UploadMaxFilesize', '2');
-
-
-
         parent::initialize();
     }
 
