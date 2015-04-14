@@ -2,12 +2,12 @@
 $L['Php54_Title'] = 'Php V5.4 SCL';
 $L['Php55_Title'] = 'Php V5.5 SCL';
 $L['Php56_Title'] = 'Php V5.6 SCL';
-$L['PhpDefault_Title'] = 'Default Php Version';
+$L['PhpDefault_Title'] = 'Php default version';
 $L['Php54AdjustableValues_Title'] = 'Manage the Php54 Settings';
 $L['Php55AdjustableValues_Title'] = 'Manage the Php55 Settings';
 $L['Php56AdjustableValues_Title'] = 'Manage the Php56 Settings';
 $L['PhpDefaultAdjustableValues_Title'] = 'Manage the default Php Settings';
-
+$L['PhpAdjustableValues_Title'] = 'Php Settings';
 $L['AllowUrlFopen_label'] = 'Allow php access to remote files';
 $L['Php memory limit (${0})'] = 'Maximum of available memory (${0})';
 $L['Maximum upload file size (${0})'] = 'Maximum upload file size (${0})';
