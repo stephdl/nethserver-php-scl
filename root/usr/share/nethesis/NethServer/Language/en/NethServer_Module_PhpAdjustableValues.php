@@ -23,6 +23,7 @@ $L['default'] = 'default';
 $L['${0} MB'] = '${0} Megabytes';
 $L['${0} seconds'] = '${0} seconds';
 $L['Php2Httpd_Title'] = 'Php Apache version';
+$L['HttpdAdjustableValues_Title'] = 'Manage the Php version of Apache';
 $L['PhpVersion_default_label'] = 'Default Php Version';
 $L['PhpVersion_php54_label'] = 'Php54 Version';
 $L['PhpVersion_php55_label'] = 'Php55 Version';
