@@ -20,7 +20,7 @@ class Php54 extends \Nethgui\Controller\AbstractController
     $this->declareParameter('MemoryLimit', Validate::POSITIVE_INTEGER, array('configuration', 'php54', 'MemoryLimit'));
     $this->declareParameter('PostMaxSize', Validate::POSITIVE_INTEGER, array('configuration', 'php54', 'PostMaxSize'));
     $this->declareParameter('UploadMaxFilesize', Validate::POSITIVE_INTEGER, array('configuration', 'php54', 'UploadMaxFilesize'));
-    $this->declareParameter('MaxFileUpload', Validate::POSITIVE_INTEGER , array('configuration', 'php54', 'UploadMaxFilesize'));
+    $this->declareParameter('MaxFileUpload', Validate::POSITIVE_INTEGER , array('configuration', 'php54', 'MaxFileUpload'));
     $this->declareParameter('MaxInputTime',  $inputtime , array('configuration', 'php54', 'MaxExecutionTime'));
     
         parent::initialize();
