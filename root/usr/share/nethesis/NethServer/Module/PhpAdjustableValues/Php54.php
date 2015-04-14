@@ -20,7 +20,7 @@ class Php54 extends \Nethgui\Controller\AbstractController
     $this->declareParameter('MemoryLimit', Validate::POSITIVE_INTEGER, array('configuration', 'php54', 'MemoryLimit'));
     $this->declareParameter('PostMaxSize', Validate::POSITIVE_INTEGER, array('configuration', 'php54', 'PostMaxSize'));
     $this->declareParameter('UploadMaxFilesize', Validate::POSITIVE_INTEGER, array('configuration', 'php54', 'UploadMaxFilesize'));
-    $this->declareParameter('MaxFileUploads', Validate::POSITIVE_INTEGER , array('configuration', 'php54', 'UploadMaxFilesize'));
+    $this->declareParameter('MaxFileUpload', Validate::POSITIVE_INTEGER , array('configuration', 'php54', 'UploadMaxFilesize'));
     $this->declareParameter('MaxInputTime',  $inputtime , array('configuration', 'php54', 'MaxExecutionTime'));
     
         parent::initialize();
@@ -170,7 +170,7 @@ class Php54 extends \Nethgui\Controller\AbstractController
                 '2000' => $view->translate('${0} MB', array(2000)),
        ));
 
-        $view['MaxFileUploadsDatasource'] = \Nethgui\Renderer\AbstractRenderer::hashToDatasource(array(
+        $view['MaxFileUploadDatasource'] = \Nethgui\Renderer\AbstractRenderer::hashToDatasource(array(
                 '5' => $view->translate('${0} files', array(5)),
                 '10' => $view->translate('${0} files', array(10)),
                 '20' => $view->translate('${0} files', array(20)),

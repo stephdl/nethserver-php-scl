@@ -20,7 +20,7 @@ echo $view->panel()
 ->insert($view->slider('MaxInputTime', $view::SLIDER_ENUMERATIVE | $view::LABEL_ABOVE)
     ->setAttribute('label', $T('Maximum input time (${0})')))
 
-->insert($view->slider('MaxFileUploads', $view::SLIDER_ENUMERATIVE | $view::LABEL_ABOVE)
+->insert($view->slider('MaxFileUpload', $view::SLIDER_ENUMERATIVE | $view::LABEL_ABOVE)
     ->setAttribute('label', $T('Maximum number of files (${0})')))
 ;
 echo $view->buttonList($view::BUTTON_SUBMIT | $view::BUTTON_HELP);
