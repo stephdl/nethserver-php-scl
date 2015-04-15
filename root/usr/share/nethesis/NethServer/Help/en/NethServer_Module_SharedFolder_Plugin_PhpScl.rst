@@ -18,6 +18,6 @@ How install more php rpm
 
     yum list available php\* --disablerepo=* --enablerepo=remi-phpscl
 
-    If you want to install a rpm for all php verion (php54,php55,php56)
+    If you want to install a rpm for all php version (php54,php55,php56)
 
     yum install php54-php-dba php55-php-dba php56-php-dba --enablerepo=remi-phpscl
