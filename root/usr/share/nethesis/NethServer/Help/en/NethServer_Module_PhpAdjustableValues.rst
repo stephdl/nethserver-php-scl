@@ -11,7 +11,7 @@ You can set here which version of Php, Apache will run, either the default one o
 Php Settings
 ============
 
-For each version of Php you can set specific settings to their php.ini
+For each version of Php you can set specific settings to the php.ini
 
 
 Modify the Shared Folder php settings.
@@ -45,4 +45,4 @@ Maximum time to parse input data
     Timing begins at the moment PHP is invoked at the server and ends when execution begins.
 
 Maximum number of uploaded files
-    The maximum number of files allowed to be uploaded simultaneously.
+    The maximum number of files allowed to be uploaded simultaneously (max_file_uploads).
