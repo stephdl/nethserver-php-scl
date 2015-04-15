@@ -55,6 +55,7 @@ Allow to use different versions of php whith a cgi script.
 %setup
 
 %build
+%{makedocs}
 perl createlinks
 
 %install
