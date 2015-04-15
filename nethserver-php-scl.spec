@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.0.0
+%define version 1.0.1
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -24,6 +24,9 @@ Requires: php56-php-pecl-zip, php56-php-mcrypt
 AutoReqProv: no
 
 %changelog
+* Fri May 01 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.1-1-ns6
+- Ready to release
+
 * Wed Apr 22 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.0-1-ns6
 - Initial release to ns6
 
