@@ -21,7 +21,7 @@ class Php56 extends \Nethgui\Controller\AbstractController
     $this->declareParameter('PostMaxSize', Validate::POSITIVE_INTEGER, array('configuration', 'php56', 'PostMaxSize'));
     $this->declareParameter('UploadMaxFilesize', Validate::POSITIVE_INTEGER, array('configuration', 'php56', 'UploadMaxFilesize'));
     $this->declareParameter('MaxFileUpload', Validate::POSITIVE_INTEGER , array('configuration', 'php56', 'MaxFileUpload'));
-    $this->declareParameter('MaxInputTime',  $inputtime , array('configuration', 'php56', 'MaxExecutionTime'));
+    $this->declareParameter('MaxInputTime',  $inputtime , array('configuration', 'php56', 'MaxInputTime'));
     
         parent::initialize();
     }
