@@ -8,8 +8,8 @@ echo $view->panel()
 ->insert($view->slider('MemoryLimit', $view::SLIDER_ENUMERATIVE | $view::LABEL_ABOVE)
    ->setAttribute('label', $T('Php memory limit (${0})')))
 
-->insert($view->slider('MaxExecutionTime', $view::SLIDER_ENUMERATIVE | $view::LABEL_ABOVE)
-    ->setAttribute('label', $T('Maximum execution time (${0})')))
+->insert($view->slider('PostMaxSize', $view::SLIDER_ENUMERATIVE | $view::LABEL_ABOVE)
+    ->setAttribute('label', $T('Maximum post size (${0})')))
 
 ->insert($view->slider('UploadMaxFilesize', $view::SLIDER_ENUMERATIVE | $view::LABEL_ABOVE)
     ->setAttribute('label', $T('Maximum upload file size (${0})')))
