@@ -27,4 +27,4 @@ $L['HttpdAdjustableValues_Title'] = 'Manage the Php version of Apache';
 $L['PhpVersion_default_label'] = 'Default Php Version';
 $L['PhpVersion_php54_label'] = 'Php54 SCL Version';
 $L['PhpVersion_php55_label'] = 'Php55 SCL Version';
-$L['PhpVersion_php56_label'] = 'Php55 SCL Version';
+$L['PhpVersion_php56_label'] = 'Php56 SCL Version';
