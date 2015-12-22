@@ -8,7 +8,7 @@ use Nethgui\Controller\Table\Modify as Table;
  * Httpd SharedFolder plugin
  *
  * @author stephane de labrusse <stephdl@de-labrusse.fr>
- * 
+ *
  */
 class  PhpScl  extends \Nethgui\Controller\Table\RowPluginAction
 {
@@ -21,10 +21,10 @@ class  PhpScl  extends \Nethgui\Controller\Table\RowPluginAction
 
     public function initialize()
     {
-     
+
         $schema = array(
             array('Status', Validate::SERVICESTATUS, Table::FIELD, 'HttpStatus'),
-            array('PhpVersion', $this->createValidator()->memberOf('default','php54','php55','php56'), Table::FIELD, 'PhpVersion'),
+            array('PhpVersion', $this->createValidator()->memberOf('default','php54','php55','php56','php70'), Table::FIELD, 'PhpVersion'),
         );
 
         $this

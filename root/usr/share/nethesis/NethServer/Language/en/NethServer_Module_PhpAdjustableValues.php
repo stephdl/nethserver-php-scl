@@ -2,10 +2,12 @@
 $L['Php54_Title'] = 'Php V5.4 SCL';
 $L['Php55_Title'] = 'Php V5.5 SCL';
 $L['Php56_Title'] = 'Php V5.6 SCL';
+$L['Php70_Title'] = 'Php V7.0 SCL';
 $L['PhpDefault_Title'] = 'Php default version';
 $L['Php54AdjustableValues_Title'] = 'Manage the Php54 Settings';
 $L['Php55AdjustableValues_Title'] = 'Manage the Php55 Settings';
 $L['Php56AdjustableValues_Title'] = 'Manage the Php56 Settings';
+$L['Php70AdjustableValues_Title'] = 'Manage the Php70 Settings';
 $L['PhpDefaultAdjustableValues_Title'] = 'Manage the default Php Settings';
 $L['PhpAdjustableValues_Title'] = 'Php Settings';
 $L['AllowUrlFopen_label'] = 'Allow php access to remote files';
@@ -28,3 +30,4 @@ $L['PhpVersion_default_label'] = 'Default Php Version';
 $L['PhpVersion_php54_label'] = 'Php54 SCL Version';
 $L['PhpVersion_php55_label'] = 'Php55 SCL Version';
 $L['PhpVersion_php56_label'] = 'Php56 SCL Version';
+$L['PhpVersion_php70_label'] = 'Php70 SCL Version';

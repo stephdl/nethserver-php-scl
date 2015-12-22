@@ -1,8 +1,8 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.0.1
-%define release 2
+%define version 1.0.2
+%define release 1
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -11,19 +11,31 @@ Source: %{name}-%{version}.tar.gz
 BuildRoot: /var/tmp/e-smith-buildroot
 BuildRequires: nethserver-devtools
 BuildArchitectures: x86_64
+
 Requires: scl-utils, nethserver-httpd, nethserver-ibays
+
 Requires: php54 , php54-php , php54-php-bcmath , php54-php-gd , php54-php-imap , php54-php-ldap , php54-php-enchant
 Requires: php54-php-mbstring , php54-php-pdo , php54-php-tidy , php54-php-mysqlnd php54-php-pecl-zip , php54-php-xml
-Requires: php54-php-soap , php54-php-mcrypt 
+Requires: php54-php-soap , php54-php-mcrypt
+
 Requires: php55 , php55-php , php55-php-bcmath , php55-php-gd , php55-php-imap , php55-php-ldap , php55-php-enchant
 Requires: php55-php-mbstring , php55-php-pdo , php55-php-tidy , php55-php-mysqlnd , php55-php-xml , php55-php-soap
 Requires: php55-php-pecl-zip, php55-php-mcrypt
+
 Requires: php56 , php56-php , php56-php-bcmath , php56-php-gd , php56-php-imap , php56-php-ldap , php56-php-enchant
 Requires: php56-php-mbstring , php56-php-pdo , php56-php-tidy , php56-php-mysqlnd , php56-php-xml , php56-php-soap
 Requires: php56-php-pecl-zip, php56-php-mcrypt
+
+Requires: php70 , php70-php , php70-php-bcmath , php70-php-gd , php70-php-imap , php70-php-ldap , php70-php-enchant
+Requires: php70-php-mbstring , php70-php-pdo , php70-php-tidy , php70-php-mysqlnd , php70-php-xml , php70-php-soap
+Requires: php70-php-pecl-zip, php70-php-mcrypt php70-php-pear
+
 AutoReqProv: no
 
 %changelog
+* Tue Dec 22 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.2-1-ns6
+- Added the php70 settings for software collections
+
 * Sat May 30 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.1-2-ns6
 - Corrected the httpd-admin issue when php scl is set to the whole server
 
@@ -69,11 +81,11 @@ rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
 rm -f %{name}-%{version}-filelist
 /sbin/e-smith/genfilelist \
-    --file /usr/bin/phpscl/php54_REMI 'attr(0770,root,apache)' \
-    --file /usr/bin/phpscl/php55_REMI 'attr(0770,root,apache)' \
-    --file /usr/bin/phpscl/php56_REMI 'attr(0770,root,apache)' \
+    --file /usr/bin/phpscl/php54_REMI 'attr(0750,root,apache)' \
+    --file /usr/bin/phpscl/php55_REMI 'attr(0750,root,apache)' \
+    --file /usr/bin/phpscl/php56_REMI 'attr(0750,root,apache)' \
+    --file /usr/bin/phpscl/php70_REMI 'attr(0750,root,apache)' \
   $RPM_BUILD_ROOT > %{name}-%{version}-filelist
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,15 +98,15 @@ rm -rf $RPM_BUILD_ROOT
 echo "
  Hi
 
- All my development work is done in my free time and from my own expenses. 
- If you consider my work as something helpful, thank you to kindly make 
- a donation to my paypal account and allow me to continue paying my server 
+ All my development work is done in my free time and from my own expenses.
+ If you consider my work as something helpful, thank you to kindly make
+ a donation to my paypal account and allow me to continue paying my server
  and all associated costs.
 
  https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZPK8FKHVT4TY8
 
  Thank in advance.
- 
+
  Stephane de Labrusse Alias Stephdl
 "
 %postun
@@ -105,10 +117,10 @@ echo "
 #
 # PHP is an HTML-embedded scripting language which attempts to make it
 # # easy for developers to write dynamically generated webpages.
-#   
+#
  <IfModule prefork.c>
    LoadModule php5_module modules/libphp5.so
- </IfModule> 
+ </IfModule>
  <IfModule worker.c>
    LoadModule php5_module modules/libphp5-zts.so
  </IfModule>
@@ -321,4 +333,3 @@ DirectoryIndex index.php
 
 %files -f %{name}-%{version}-filelist
 %defattr(-,root,root)
-

@@ -11,11 +11,13 @@ event_actions($event,
     templates2events("/opt/remi/php54/root/etc/php.ini", $event);
     templates2events("/opt/remi/php55/root/etc/php.ini", $event);
     templates2events("/opt/remi/php56/root/etc/php.ini", $event);
+    templates2events("/etc/opt/remi/php70/php.ini", $event);
     templates2events("/etc/httpd/conf/httpd.conf", $event);
     templates2events("/etc/httpd/conf.d/php.conf", $event);
     templates2events("/etc/httpd/conf.d/php54-php.conf", $event);
     templates2events("/etc/httpd/conf.d/php55-php.conf", $event);
     templates2events("/etc/httpd/conf.d/php56-php.conf", $event);
+    templates2events("/etc/httpd/conf.d/php70-php.conf", $event);
     templates2events("/etc/php.ini", $event);
 
     event_services($event, 'httpd' => 'reload');
@@ -25,9 +27,11 @@ for my $event (qw(nethserver-php-update nethserver-php-save ))
     templates2events("/opt/remi/php54/root/etc/php.ini", $event);
     templates2events("/opt/remi/php55/root/etc/php.ini", $event);
     templates2events("/opt/remi/php56/root/etc/php.ini", $event);
+    templates2events("/etc/opt/remi/php70/php.ini", $event);
     templates2events("/etc/httpd/conf.d/php.conf", $event);
     templates2events("/etc/httpd/conf.d/php54-php.conf", $event);
     templates2events("/etc/httpd/conf.d/php55-php.conf", $event);
     templates2events("/etc/httpd/conf.d/php56-php.conf", $event);
+    templates2events("/etc/httpd/conf.d/php70-php.conf", $event);
     event_services($event, 'httpd' => 'reload');
 }

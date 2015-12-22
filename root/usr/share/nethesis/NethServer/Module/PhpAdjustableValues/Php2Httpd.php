@@ -13,7 +13,7 @@ class Php2Httpd extends \Nethgui\Controller\AbstractController
     public function initialize()
     {
 
-    $this->declareParameter('PhpVersion', $this->createValidator()->memberOf('php54','php55','php56','default'), array('configuration', 'httpd', 'PhpVersion'));
+    $this->declareParameter('PhpVersion', $this->createValidator()->memberOf('php54','php55','php56','php70','default'), array('configuration', 'httpd', 'PhpVersion'));
 
         parent::initialize();
     }
@@ -25,4 +25,3 @@ class Php2Httpd extends \Nethgui\Controller\AbstractController
     }
 
 }
-
