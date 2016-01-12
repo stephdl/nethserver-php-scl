@@ -1,6 +1,6 @@
 [Session]
 session.save_handler                   = files
-session.save_path                      = /tmp
+session.save_path                      = /var/opt/remi/php70/lib/php/session
 session.use_cookies                    = 1
 session.name                           = PHPSESSID  
 session.auto_start                     = 0

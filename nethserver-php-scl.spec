@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.0.2
+%define version 1.0.3
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -33,6 +33,9 @@ Requires: php70-php-pecl-zip, php70-php-mcrypt php70-php-pear
 AutoReqProv: no
 
 %changelog
+* Sun Jan 24 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.3-1-ns6
+- Added specific path for soap cache  and save session
+
 * Tue Dec 22 2015 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.2-1-ns6
 - Added the php70 settings for software collections
 
