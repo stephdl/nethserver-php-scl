@@ -33,7 +33,7 @@ Requires: php70-php-pecl-zip, php70-php-mcrypt php70-php-pear
 AutoReqProv: no
 
 %changelog
-- Tue Jul 12 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.5-1-ns6
+* Tue Jul 12 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.5-1-ns6
 - Added nethserver-remi-phpscl as dependency
 
 * Tue Jan 26 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.4-1-ns6
