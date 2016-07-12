@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.0.4
+%define version 1.0.5
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -11,7 +11,7 @@ Source: %{name}-%{version}.tar.gz
 BuildRoot: /var/tmp/e-smith-buildroot
 BuildRequires: nethserver-devtools
 BuildArchitectures: x86_64
-
+Requires: nethserver-remi-phpscl
 Requires: scl-utils, nethserver-httpd, nethserver-ibays
 
 Requires: php54 , php54-php , php54-php-bcmath , php54-php-gd , php54-php-imap , php54-php-ldap , php54-php-enchant
@@ -33,6 +33,9 @@ Requires: php70-php-pecl-zip, php70-php-mcrypt php70-php-pear
 AutoReqProv: no
 
 %changelog
+- Tue Jul 12 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.5-1-ns6
+- Added nethserver-remi-phpscl as dependency
+
 * Tue Jan 26 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.4-1-ns6
 - Added path to /usr/share/pear in 50PathsDirectories
 
