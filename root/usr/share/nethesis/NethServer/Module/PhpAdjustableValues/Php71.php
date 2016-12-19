@@ -4,10 +4,10 @@ namespace NethServer\Module\PhpAdjustableValues;
 use Nethgui\System\PlatformInterface as Validate;
 
 /**
- * Implement gui module for php56 settings
+ * Implement gui module for php71 settings
  */
 
-class Php56 extends \Nethgui\Controller\AbstractController
+class Php71 extends \Nethgui\Controller\AbstractController
 {
 
 
@@ -16,13 +16,13 @@ class Php56 extends \Nethgui\Controller\AbstractController
     $executiontime = $this->createValidator()->memberOf('0','30','60','120','180','240','300','360','420','480','540','600');
     $inputtime = $this->createValidator()->memberOf('60','120','180','240','300','360','420','480','540','600');
 
-    $this->declareParameter('AllowUrlFopen', $this->createValidator()->memberOf('On','Off'), array('configuration', 'php56', 'AllowUrlFopen'));
-    $this->declareParameter('MaxExecutionTime',  $executiontime , array('configuration', 'php56', 'MaxExecutionTime'));
-    $this->declareParameter('MemoryLimit', Validate::POSITIVE_INTEGER, array('configuration', 'php56', 'MemoryLimit'));
-    $this->declareParameter('PostMaxSize', Validate::POSITIVE_INTEGER, array('configuration', 'php56', 'PostMaxSize'));
-    $this->declareParameter('UploadMaxFilesize', Validate::POSITIVE_INTEGER, array('configuration', 'php56', 'UploadMaxFilesize'));
-    $this->declareParameter('MaxFileUpload', Validate::POSITIVE_INTEGER , array('configuration', 'php56', 'MaxFileUpload'));
-    $this->declareParameter('MaxInputTime',  $inputtime , array('configuration', 'php56', 'MaxInputTime'));
+    $this->declareParameter('AllowUrlFopen', $this->createValidator()->memberOf('On','Off'), array('configuration', 'php71', 'AllowUrlFopen'));
+    $this->declareParameter('MaxExecutionTime',  $executiontime , array('configuration', 'php71', 'MaxExecutionTime'));
+    $this->declareParameter('MemoryLimit', Validate::POSITIVE_INTEGER, array('configuration', 'php71', 'MemoryLimit'));
+    $this->declareParameter('PostMaxSize', Validate::POSITIVE_INTEGER, array('configuration', 'php71', 'PostMaxSize'));
+    $this->declareParameter('UploadMaxFilesize', Validate::POSITIVE_INTEGER, array('configuration', 'php71', 'UploadMaxFilesize'));
+    $this->declareParameter('MaxFileUpload', Validate::POSITIVE_INTEGER , array('configuration', 'php71', 'MaxFileUpload'));
+    $this->declareParameter('MaxInputTime',  $inputtime , array('configuration', 'php71', 'MaxInputTime'));
 
     parent::initialize();
     }

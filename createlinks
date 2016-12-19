@@ -7,31 +7,39 @@ my $event = 'nethserver-php-scl-update';
 event_actions($event,
 'initialize-default-databases' => '00');
 
-
-    templates2events("/opt/remi/php54/root/etc/php.ini", $event);
-    templates2events("/opt/remi/php55/root/etc/php.ini", $event);
     templates2events("/opt/remi/php56/root/etc/php.ini", $event);
     templates2events("/etc/opt/remi/php70/php.ini", $event);
-    templates2events("/etc/httpd/conf/httpd.conf", $event);
-    templates2events("/etc/httpd/conf.d/php.conf", $event);
-    templates2events("/etc/httpd/conf.d/php54-php.conf", $event);
-    templates2events("/etc/httpd/conf.d/php55-php.conf", $event);
-    templates2events("/etc/httpd/conf.d/php56-php.conf", $event);
-    templates2events("/etc/httpd/conf.d/php70-php.conf", $event);
-    templates2events("/etc/php.ini", $event);
+    templates2events("/etc/opt/remi/php71/php.ini", $event);
+    templates2events("/opt/remi/php56/root/etc/php-fpm.d/www.conf", $event);
+    templates2events("/etc/opt/remi/php71/php-fpm.d/www.conf", $event);
+    templates2events("/etc/opt/remi/php70/php-fpm.d/www.conf", $event);
+    templates2events("/etc/httpd/conf.modules.d/15-php71-php.conf", $event);
+    templates2events("/etc/httpd/conf.modules.d/15-php70-php.conf", $event);
+    templates2events("/etc/httpd/conf.modules.d/10-php56-php.conf", $event);
+    templates2events("/etc/httpd/conf.modules.d/10-php.conf", $event);
+    templates2events("/etc/httpd/conf.d/virtualhosts.conf", $event);
 
     event_services($event, 'httpd' => 'reload');
+    event_services($event, 'php56-php-fpm' => 'restart');
+    event_services($event, 'php70-php-fpm' => 'restart');
+    event_services($event, 'php71-php-fpm' => 'restart');
 
-for my $event (qw(nethserver-php-update nethserver-php-save ))
+for my $event (qw(nethserver-php-update))
 {
-    templates2events("/opt/remi/php54/root/etc/php.ini", $event);
-    templates2events("/opt/remi/php55/root/etc/php.ini", $event);
+
     templates2events("/opt/remi/php56/root/etc/php.ini", $event);
     templates2events("/etc/opt/remi/php70/php.ini", $event);
-    templates2events("/etc/httpd/conf.d/php.conf", $event);
-    templates2events("/etc/httpd/conf.d/php54-php.conf", $event);
-    templates2events("/etc/httpd/conf.d/php55-php.conf", $event);
-    templates2events("/etc/httpd/conf.d/php56-php.conf", $event);
-    templates2events("/etc/httpd/conf.d/php70-php.conf", $event);
+    templates2events("/etc/opt/remi/php71/php.ini", $event);
+    templates2events("/opt/remi/php56/root/etc/php-fpm.d/www.conf", $event);
+    templates2events("/etc/opt/remi/php71/php-fpm.d/www.conf", $event);
+    templates2events("/etc/opt/remi/php70/php-fpm.d/www.conf", $event);
+    templates2events("/etc/httpd/conf.modules.d/15-php71-php.conf", $event);
+    templates2events("/etc/httpd/conf.modules.d/15-php70-php.conf", $event);
+    templates2events("/etc/httpd/conf.modules.d/10-php56-php.conf", $event);
+    templates2events("/etc/httpd/conf.modules.d/10-php.conf", $event);
+
     event_services($event, 'httpd' => 'reload');
+    event_services($event, 'php56-php-fpm' => 'restart');
+    event_services($event, 'php70-php-fpm' => 'restart');
+    event_services($event, 'php71-php-fpm' => 'restart');
 }

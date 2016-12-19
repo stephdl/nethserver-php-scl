@@ -1,0 +1,54 @@
+{
+use esmith::ConfigDB;
+my $vdb = esmith::ConfigDB->open_ro('vhosts') || die("Can't open vhosts db");
+my $db = esmith::ConfigDB->open_ro || die("Can't open config  db");
+
+my $PhpVersion = $vdb->get_prop("$VhostName",'PhpVersion') || 'default';
+
+if ($PhpVersion eq 'php56')
+    {
+    my $TCPPort = $db->get_prop("php56-php-fpm",'TCPPort')
+        || "9056";
+    # write the configuration
+    $OUT .= "\n";
+    $OUT .= "# use PHP56 SCL from Remi repository  instead of the default PHP\n";
+$OUT .= << "EOF";
+<FilesMatch \.php\$>
+  SetHandler "proxy:fcgi://127.0.0.1:$TCPPort"
+</FilesMatch>
+
+EOF
+    }
+
+elsif ($PhpVersion eq 'php70')
+    {
+    my $TCPPort = $db->get_prop("php70-php-fpm",'TCPPort')
+        || "9070";
+
+    # write the configuration
+    $OUT .= "\n";
+    $OUT .= "# use PHP70 SCL from Remi repository  instead of the default PHP\n";
+$OUT .= << "EOF";
+<FilesMatch \.php\$>
+  SetHandler "proxy:fcgi://127.0.0.1:$TCPPort"
+</FilesMatch>
+
+EOF
+    }
+
+elsif ($PhpVersion eq 'php71')
+    {
+    my $TCPPort = $db->get_prop("php71-php-fpm",'TCPPort')
+        || "9071";
+
+    # write the configuration
+    $OUT .= "\n";
+    $OUT .= "# use PHP71 SCL from Remi repository  instead of the default PHP\n";
+$OUT .= << "EOF";
+<FilesMatch \.php\$>
+  SetHandler "proxy:fcgi://127.0.0.1:$TCPPort"
+</FilesMatch>
+
+EOF
+    }
+}

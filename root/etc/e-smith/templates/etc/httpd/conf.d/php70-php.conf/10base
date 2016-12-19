@@ -1,3 +1,0 @@
-{
-    $OUT .= "# the PHP70  version is disabled by nethserver-php-scl. See /etc/httpd/conf.d/php.conf";
-}
