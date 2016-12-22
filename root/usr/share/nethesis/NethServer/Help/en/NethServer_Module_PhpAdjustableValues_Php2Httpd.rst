@@ -9,7 +9,6 @@ You can choose a version of php for the whole apache server.
     If you need a specific PHP version for one VirtualHost, then you must adjust it in the Panel of your VirtualHost
 
 How install more php rpm
-
     All php rpm must be installed directly from Remi by a yum command line.
 
     For example if you want to display all available rpm for the software collection
