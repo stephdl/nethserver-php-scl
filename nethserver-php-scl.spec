@@ -11,7 +11,7 @@ Source: %{name}-%{version}.tar.gz
 BuildRoot: /var/tmp/e-smith-buildroot
 BuildRequires: nethserver-devtools
 BuildArchitectures: x86_64
-Requires: scl-utils, nethserver-httpd, nethserver-phpsettings 
+Requires: scl-utils, nethserver-httpd, nethserver-phpsettings, nethserver-virtualhosts 
 
 Requires: php56 , php56-php , php56-php-bcmath , php56-php-gd , php56-php-imap , php56-php-ldap , php56-php-enchant
 Requires: php56-php-mbstring , php56-php-pdo , php56-php-tidy , php56-php-mysqlnd , php56-php-xml , php56-php-soap
