@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.0.5
+%define version 1.0.6
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -12,7 +12,7 @@ BuildRoot: /var/tmp/e-smith-buildroot
 BuildRequires: nethserver-devtools
 BuildArchitectures: x86_64
 Requires: nethserver-remi-phpscl
-Requires: scl-utils, nethserver-httpd, nethserver-ibays
+Requires: scl-utils, nethserver-httpd, nethserver-ibays, nethserver-phpsettings
 
 Requires: php54 , php54-php , php54-php-bcmath , php54-php-gd , php54-php-imap , php54-php-ldap , php54-php-enchant
 Requires: php54-php-mbstring , php54-php-pdo , php54-php-tidy , php54-php-mysqlnd php54-php-pecl-zip , php54-php-xml
@@ -33,6 +33,9 @@ Requires: php70-php-pecl-zip, php70-php-mcrypt php70-php-pear
 AutoReqProv: no
 
 %changelog
+* Tue Jan 17 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.6-1-ns6
+- Added nethserver-phpsettings as dependency
+
 * Tue Jul 12 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.5-1-ns6
 - Added nethserver-remi-phpscl as dependency
 
