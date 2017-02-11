@@ -1,0 +1,33 @@
+[main]
+host = https://www.transifex.com
+
+[nethserver.PhpAdjustableValues_Php71]
+source_file = root/usr/share/nethesis/NethServer/Language/en/NethServer_Module_PhpAdjustableValues_Php71.php
+source_lang = en
+type = PHP_ALT_ARRAY
+
+
+[nethserver.PhpAdjustableValues_Php2Httpd]
+source_file = root/usr/share/nethesis/NethServer/Language/en/NethServer_Module_PhpAdjustableValues_Php2Httpd.php
+source_lang = en
+type = PHP_ALT_ARRAY
+
+
+[nethserver.VirtualHosts_ModifyPlugin_PhpScl]
+source_file = root/usr/share/nethesis/NethServer/Language/en/NethServer_Module_VirtualHosts_ModifyPlugin_PhpScl.php
+source_lang = en
+type = PHP_ALT_ARRAY
+
+
+[nethserver.PhpAdjustableValues_Php56]
+source_file = root/usr/share/nethesis/NethServer/Language/en/NethServer_Module_PhpAdjustableValues_Php56.php
+source_lang = en
+type = PHP_ALT_ARRAY
+
+
+[nethserver.PhpAdjustableValues_Php70]
+source_file = root/usr/share/nethesis/NethServer/Language/en/NethServer_Module_PhpAdjustableValues_Php70.php
+source_lang = en
+type = PHP_ALT_ARRAY
+
+
