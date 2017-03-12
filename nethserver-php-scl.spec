@@ -2,7 +2,7 @@ Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
 %define version 1.0.6
-%define release 1
+%define release 2
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -33,6 +33,9 @@ Requires: php70-php-pecl-zip, php70-php-mcrypt php70-php-pear
 AutoReqProv: no
 
 %changelog
+* Sun Mar 12 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.6-2-ns6
+- GPL license
+
 * Tue Jan 17 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.6-1-ns6
 - Added nethserver-phpsettings as dependency
 
@@ -107,20 +110,6 @@ rm -rf $RPM_BUILD_ROOT
 %preun
 
 %post
-echo "
- Hi
-
- All my development work is done in my free time and from my own expenses.
- If you consider my work as something helpful, thank you to kindly make
- a donation to my paypal account and allow me to continue paying my server
- and all associated costs.
-
- https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZPK8FKHVT4TY8
-
- Thank in advance.
-
- Stephane de Labrusse Alias Stephdl
-"
 %postun
 #we write in former state all php.conf files
 
@@ -345,3 +334,4 @@ DirectoryIndex index.php
 
 %files -f %{name}-%{version}-filelist
 %defattr(-,root,root)
+%doc COPYING
