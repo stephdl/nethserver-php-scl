@@ -2,7 +2,7 @@ Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
 %define version 1.1.0
-%define release 1
+%define release 2
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -28,6 +28,9 @@ Requires: php71-php-pecl-zip, php71-php-mcrypt php71-php-pear, php71-php-fpm, ph
 AutoReqProv: no
 
 %changelog
+* Sun Mar 12 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.0-2-ns7
+- GPL license
+
 * Wed Dec 21 2016 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.0-1-ns7
 - New version php-fpm based for NS7
 
@@ -161,5 +164,5 @@ echo "#
 
 %files -f %{name}-%{version}-filelist
 %defattr(-,root,root)
-
+%doc COPYING
 %dir %{_nseventsdir}/%{name}-update
