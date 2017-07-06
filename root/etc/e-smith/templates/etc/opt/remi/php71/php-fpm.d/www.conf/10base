@@ -39,7 +39,13 @@ group = apache
 ; Note: This value is mandatory.
 EOF
 
+if (defined $VhostName) {
 $OUT .= "listen = /var/run/php-fpm/$VhostName.sock\n";
+}
+else {
+my $tcp = ${'php71-php-fpm'}{'TCPPort'} || '9071';
+$OUT .= "listen = 127.0.0.1:$tcp\n";
+}
 
 $OUT .= << 'EOF';
 
