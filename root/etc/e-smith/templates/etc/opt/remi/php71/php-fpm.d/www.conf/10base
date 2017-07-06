@@ -3,6 +3,7 @@ $OUT .= << 'EOF';
 ; Start a new pool named 'www'.
 ; the variable $pool can we used in any directive and will be replaced by the
 ; pool name ('www' here)
+EOF
 
 if (defined $VhostName) {
 $OUT .= "[$VhostName]\n";
@@ -10,6 +11,8 @@ $OUT .= "[$VhostName]\n";
 else {
 [www]
 }
+
+$OUT .= <<'EOF';
 
 ; Per pool prefix
 ; It only applies on the following directives:
