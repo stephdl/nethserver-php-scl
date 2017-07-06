@@ -1,8 +1,8 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.1.0
-%define release 2
+%define version 1.1.1
+%define release 1
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -28,6 +28,12 @@ Requires: php71-php-pecl-zip, php71-php-mcrypt php71-php-pear, php71-php-fpm, ph
 AutoReqProv: no
 
 %changelog
+* Fri Jul 7 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.2-1-ns7
+- Thank to daniel bertaud for the idea
+- each vhost gets its php-fpm pool
+- php settings inside the php-fpm pool
+- php-mod and php-fpm by tcp port still available for backward compatibility
+
 * Sun Mar 12 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.0-2-ns7
 - GPL license
 
@@ -89,8 +95,11 @@ perl createlinks
 %install
 rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
+%{__mkdir_p} -p $RPM_BUILD_ROOT/var/run/php-fpm/
+
 rm -f %{name}-%{version}-filelist
 %{genfilelist} \
+--dir /var/run/php-fpm/ 'attr(0775,root,apache)' \
   $RPM_BUILD_ROOT > %{name}-%{version}-filelist
 
 %clean

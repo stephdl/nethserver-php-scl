@@ -43,3 +43,23 @@ for my $event (qw(nethserver-php-update))
     event_services($event, 'php70-php-fpm' => 'restart');
     event_services($event, 'php71-php-fpm' => 'restart');
 }
+
+for my $event (qw(
+nethserver-php-scl-update
+vhost-modify
+vhost-create
+vhost-delete ))
+{
+event_actions($event,
+'nethserver-php-fpm_pool_creation' => '10');
+}
+
+for my $event (qw(
+vhost-modify
+vhost-create
+vhost-delete ))
+{
+    event_services($event, 'php56-php-fpm' => 'reload');
+    event_services($event, 'php70-php-fpm' => 'reload');
+    event_services($event, 'php71-php-fpm' => 'reload');
+}
