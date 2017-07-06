@@ -8,7 +8,7 @@ if (defined $VhostName) {
 $OUT .= "[$VhostName]\n";
 }
 else {
-[www]
+$OUT .= '[www]';
 }
 $OUT .= <<'EOF';
 
