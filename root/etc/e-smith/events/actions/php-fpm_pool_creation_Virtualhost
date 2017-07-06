@@ -1,0 +1,53 @@
+#!/usr/bin/perl
+
+use esmith::templates;
+use esmith::ConfigDB;
+my $vdb = esmith::ConfigDB->open_ro('vhosts') || die("Can't open vhosts db");
+my $db = esmith::ConfigDB->open_ro('configuration') || die("Can't open config db");
+
+#my $status = $db->get_prop('awstats','status')|| 'disabled';
+my @outDir = '/opt/remi/php56/root/etc/php-fpm.d/',
+             '/etc/opt/remi/php70/php-fpm.d/www.conf',
+             '/etc/opt/remi/php71/php-fpm.d/www.conf';
+
+#We remove file before to recreate it
+foreach my $outDir (@outDir){
+unlink glob $outDir . 'php-fpm*conf';
+}
+
+foreach my $vhost ($vdb->get_all_by_prop('type'=>'vhost')) {
+
+    my %vhostData = $vhost->props();
+
+
+    $vhostData{VhostName} = $vhost->key;
+    $vhostData{phpFpm} = $vdb->get_prop($vhost->key,'PhpVersion') || 'default';
+
+    #skip if vhost status is not enabled
+    if( !defined($vhostData{status}) || $vhostData{status} ne 'enabled' ){
+        next;
+    }
+
+    #paths are different following the php version
+    if ($vhostData{phpFpm} eq 'php56') {
+        $path = "/opt/remi/php56/root/etc/php-fpm.d/www.conf" if ($vhostData{phpFpm} eq 'php56');
+        $out = "/opt/remi/php56/root/etc/php-fpm.d/" if ($vhostData{phpFpm} eq 'php56');
+    }
+    elsif ($vhostData{phpFpm} eq 'php70') {
+        $path = "/etc/opt/remi/php70/php-fpm.d/www.conf" if ($vhostData{phpFpm} eq 'php70');
+        $out = "/etc/opt/remi/php70/php-fpm.d/" if ($vhostData{phpFpm} eq 'php70');
+    }
+    elsif ($vhostData{phpFpm} eq 'php71') {
+        $path = "/etc/opt/remi/php71/php-fpm.d/www.conf" if ($vhostData{phpFpm} eq 'php71');
+        $out = "/etc/opt/remi/php71/php-fpm.d/" if ($vhostData{phpFpm} eq 'php71');
+    }
+
+    $OUT .= esmith::templates::processTemplate({
+                    MORE_DATA => \%vhostData,
+                    TEMPLATE_PATH => $path,
+                    OUTPUT_TYPE => 'file',
+                    OUTPUT_PREFIX => $out,
+                    OUTPUT_FILENAME => 'php-fpm.'. $vhostData{VhostName}.'.conf'
+     });
+}
+

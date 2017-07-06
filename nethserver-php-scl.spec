@@ -91,6 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
 rm -f %{name}-%{version}-filelist
 %{genfilelist} \
+--dir /var/run/php-fpm/ 'attr(0775,root,apache)' \
   $RPM_BUILD_ROOT > %{name}-%{version}-filelist
 
 %clean
