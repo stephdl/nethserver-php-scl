@@ -40,9 +40,7 @@ group = apache
 ; Note: This value is mandatory.
 EOF
 
-$OUT .= << "EOF";
-listen = SetHandler "proxy:unix:/var/run/php-fpm/$VhostName.sock|fcgi://localhost/"
-EOF
+$OUT .= "listen = /var/run/php-fpm/$VhostName.sock\n"
 
 $OUT .= << 'EOF';
 

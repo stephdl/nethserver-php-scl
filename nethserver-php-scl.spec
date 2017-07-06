@@ -83,6 +83,7 @@ Allow to use different versions of php whith a cgi script.
 %setup
 
 %build
+%{__mkdir} -p $RPM_BUILD_ROOT/var/run/php-fpm/
 %{makedocs}
 perl createlinks
 
