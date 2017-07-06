@@ -40,7 +40,7 @@ group = apache
 ; Note: This value is mandatory.
 EOF
 
-$OUT .= "listen = /var/run/php-fpm/$VhostName.sock\n"
+$OUT .= "listen = /var/run/php-fpm/$VhostName.sock\n";
 
 $OUT .= << 'EOF';
 
