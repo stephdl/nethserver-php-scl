@@ -83,13 +83,14 @@ Allow to use different versions of php whith a cgi script.
 %setup
 
 %build
-%{__mkdir} -p $RPM_BUILD_ROOT/var/run/php-fpm/
 %{makedocs}
 perl createlinks
 
 %install
 rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
+%{__mkdir_p} -p $RPM_BUILD_ROOT/var/run/php-fpm/
+
 rm -f %{name}-%{version}-filelist
 %{genfilelist} \
 --dir /var/run/php-fpm/ 'attr(0775,root,apache)' \
