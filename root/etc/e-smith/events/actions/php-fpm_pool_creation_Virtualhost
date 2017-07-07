@@ -5,14 +5,13 @@ use esmith::ConfigDB;
 my $vdb = esmith::ConfigDB->open_ro('vhosts') || die("Can't open vhosts db");
 my $db = esmith::ConfigDB->open_ro('configuration') || die("Can't open config db");
 
-#my $status = $db->get_prop('awstats','status')|| 'disabled';
-my @outDir = '/opt/remi/php56/root/etc/php-fpm.d/',
-             '/etc/opt/remi/php70/php-fpm.d/www.conf',
-             '/etc/opt/remi/php71/php-fpm.d/www.conf';
+my @outDir = ('/opt/remi/php56/root/etc/php-fpm.d/',
+             '/etc/opt/remi/php70/php-fpm.d/',
+             '/etc/opt/remi/php71/php-fpm.d/');
 
 #We remove file before to recreate it
 foreach my $outDir (@outDir){
-unlink glob $outDir . 'php-fpm*conf';
+unlink glob $outDir . 'php-fpm.*.conf';
 }
 
 foreach my $vhost ($vdb->get_all_by_prop('type'=>'vhost')) {
@@ -25,6 +24,10 @@ foreach my $vhost ($vdb->get_all_by_prop('type'=>'vhost')) {
 
     #skip if vhost status is not enabled
     if( !defined($vhostData{status}) || $vhostData{status} ne 'enabled' ){
+        next;
+    }
+    #skip if vhost phpFpm is default
+    if( !defined($vhostData{phpFpm}) || $vhostData{phpFpm} eq 'default' ){
         next;
     }
 
