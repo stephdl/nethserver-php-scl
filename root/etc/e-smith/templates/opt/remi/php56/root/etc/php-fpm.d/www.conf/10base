@@ -48,7 +48,7 @@ group = apache
 EOF
 
 if (defined $VhostName) {
-$OUT .= "listen = /var/run/php-fpm/$VhostName.sock\n";
+$OUT .= "listen = /var/run/php-fpm/$VhostName-php56.sock\n";
 }
 else {
 my $tcp = ${'php56-php-fpm'}{'TCPPort'} || '9056';

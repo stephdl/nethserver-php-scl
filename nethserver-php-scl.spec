@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.1.1
+%define version 1.1.2
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -28,7 +28,10 @@ Requires: php71-php-pecl-zip, php71-php-mcrypt php71-php-pear, php71-php-fpm, ph
 AutoReqProv: no
 
 %changelog
-* Fri Jul 7 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.2-1-ns7
+* Fri Jul 21 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.2-1-ns7
+- the php socket name gets the php version
+
+* Fri Jul 7 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.1-1-ns7
 - Thank to daniel bertaud for the idea
 - each vhost gets its php-fpm pool
 - php settings inside the php-fpm pool
