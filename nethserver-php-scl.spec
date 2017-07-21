@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.0.6
+%define version 1.0.7
 %define release 2
 Version: %{version}
 Release: %{release}%{?dist}
@@ -11,7 +11,6 @@ Source: %{name}-%{version}.tar.gz
 BuildRoot: /var/tmp/e-smith-buildroot
 BuildRequires: nethserver-devtools
 BuildArchitectures: x86_64
-Requires: nethserver-remi-phpscl
 Requires: scl-utils, nethserver-httpd, nethserver-ibays, nethserver-phpsettings
 
 Requires: php54 , php54-php , php54-php-bcmath , php54-php-gd , php54-php-imap , php54-php-ldap , php54-php-enchant
@@ -30,9 +29,16 @@ Requires: php70 , php70-php , php70-php-bcmath , php70-php-gd , php70-php-imap ,
 Requires: php70-php-mbstring , php70-php-pdo , php70-php-tidy , php70-php-mysqlnd , php70-php-xml , php70-php-soap
 Requires: php70-php-pecl-zip, php70-php-mcrypt php70-php-pear
 
+Requires: php71 , php71-php , php71-php-bcmath , php71-php-gd , php71-php-imap , php71-php-ldap , php71-php-enchant
+Requires: php71-php-mbstring , php71-php-pdo , php71-php-tidy , php71-php-mysqlnd , php71-php-xml , php71-php-soap
+Requires: php71-php-pecl-zip, php71-php-mcrypt php71-php-pear
+
 AutoReqProv: no
 
 %changelog
+* Fri Jul 21 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.7-2-ns6
+- Update to php71
+
 * Sun Mar 12 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.6-2-ns6
 - GPL license
 
@@ -100,6 +106,7 @@ rm -f %{name}-%{version}-filelist
     --file /usr/bin/phpscl/php55_REMI 'attr(0750,root,apache)' \
     --file /usr/bin/phpscl/php56_REMI 'attr(0750,root,apache)' \
     --file /usr/bin/phpscl/php70_REMI 'attr(0750,root,apache)' \
+    --file /usr/bin/phpscl/php71_REMI 'attr(0750,root,apache)' \
   $RPM_BUILD_ROOT > %{name}-%{version}-filelist
 
 %clean
@@ -331,6 +338,143 @@ DirectoryIndex index.php
     php_value soap.wsdl_cache_dir  "/opt/remi/php56/root/var/lib/php/wsdlcache"
 </IfModule>" > /etc/httpd/conf.d/php56-php.conf
 
+#PHP70
+echo "
+#
+# PHP is an HTML-embedded scripting language which attempts to make it
+# easy for developers to write dynamically generated webpages.
+#
+
+# Cannot load both php5 and php7 modules
+<IfModule !mod_php5.c>
+  <IfModule prefork.c>
+    LoadModule php7_module modules/libphp70.so
+  </IfModule>
+</IfModule>
+
+#
+# The following lines prevent .user.ini files from being viewed by Web clients.
+#
+<Files ".user.ini">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+        Satisfy All
+    </IfModule>
+</Files>
+
+#
+# Allow php to handle Multiviews
+#
+AddType text/html .php
+
+#
+# Add index.php to the list of files that will be served as directory
+# indexes.
+#
+DirectoryIndex index.php
+
+# mod_php options
+<IfModule  mod_php7.c>
+    #
+    # Cause the PHP interpreter to handle files with a .php extension.
+    #
+    <FilesMatch \.php$>
+        SetHandler application/x-httpd-php
+    </FilesMatch>
+
+    #
+    # Uncomment the following lines to allow PHP to pretty-print .phps
+    # files as PHP source code:
+    #
+    #<FilesMatch \.phps$>
+    #    SetHandler application/x-httpd-php-source
+    #</FilesMatch>
+
+    #
+    # Apache specific PHP configuration options
+    # those can be override in each configured vhost
+    #
+    php_value session.save_handler "files"
+    php_value session.save_path    "/var/opt/remi/php70/lib/php/session"
+    php_value soap.wsdl_cache_dir  "/var/opt/remi/php70/lib/php/wsdlcache"
+
+    #php_value opcache.file_cache   "/var/opt/remi/php70/lib/php/opcache"
+</IfModule>
+" > /etc/httpd/conf.d/php70-php.conf
+
+
+#PHP71
+echo "
+#
+# PHP is an HTML-embedded scripting language which attempts to make it
+# easy for developers to write dynamically generated webpages.
+#
+
+# Cannot load both php5 and php7 modules
+<IfModule !mod_php5.c>
+  <IfModule prefork.c>
+    LoadModule php7_module modules/libphp71.so
+  </IfModule>
+</IfModule>
+
+#
+# The following lines prevent .user.ini files from being viewed by Web clients.
+#
+<Files ".user.ini">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+        Satisfy All
+    </IfModule>
+</Files>
+
+#
+# Allow php to handle Multiviews
+#
+AddType text/html .php
+
+#
+# Add index.php to the list of files that will be served as directory
+# indexes.
+#
+DirectoryIndex index.php
+
+# mod_php options
+<IfModule  mod_php7.c>
+    #
+    # Cause the PHP interpreter to handle files with a .php extension.
+    #
+    <FilesMatch \.php$>
+        SetHandler application/x-httpd-php
+    </FilesMatch>
+
+    #
+    # Uncomment the following lines to allow PHP to pretty-print .phps
+    # files as PHP source code:
+    #
+    #<FilesMatch \.phps$>
+    #    SetHandler application/x-httpd-php-source
+    #</FilesMatch>
+
+    #
+    # Apache specific PHP configuration options
+    # those can be override in each configured vhost
+    #
+    php_value session.save_handler "files"
+    php_value session.save_path    "/var/opt/remi/php71/lib/php/session"
+    php_value soap.wsdl_cache_dir  "/var/opt/remi/php71/lib/php/wsdlcache"
+
+    #php_value opcache.file_cache   "/var/opt/remi/php71/lib/php/opcache"
+</IfModule>
+
+" > /etc/httpd/conf.d/php71-php.conf
 
 %files -f %{name}-%{version}-filelist
 %defattr(-,root,root)

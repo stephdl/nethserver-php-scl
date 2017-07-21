@@ -1,7 +1,7 @@
 <?php
 namespace NethServer\Module;
 /**
- * Implementation of dynamic dns with ddclient
+ * Implementation of php software collection
  */
 class PhpAdjustableValues extends \Nethgui\Controller\TabsController
 {

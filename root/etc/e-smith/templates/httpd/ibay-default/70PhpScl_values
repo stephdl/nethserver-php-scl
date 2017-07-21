@@ -44,4 +44,14 @@ elsif ($PhpVersion eq 'php56')
         $OUT .= "Action phpscl-cgi /phpscl-cgi/php70_REMI\n";
         $OUT .= "\n";
         }
+
+    elsif ($PhpVersion eq 'php71')
+        {
+        # write the configuration
+        $OUT .= "\n";
+        $OUT .= "# use PHP71 SCL from Remi repository  instead of the default PHP\n";
+        $OUT .= "AddHandler phpscl-cgi .php\n";
+        $OUT .= "Action phpscl-cgi /phpscl-cgi/php71_REMI\n";
+        $OUT .= "\n";
+        }
 }
