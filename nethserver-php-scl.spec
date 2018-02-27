@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.1.2
+%define version 1.1.3
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}

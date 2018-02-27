@@ -13,11 +13,8 @@ event_actions($event,
     templates2events("/opt/remi/php56/root/etc/php-fpm.d/www.conf", $event);
     templates2events("/etc/opt/remi/php71/php-fpm.d/www.conf", $event);
     templates2events("/etc/opt/remi/php70/php-fpm.d/www.conf", $event);
-    templates2events("/etc/httpd/conf.modules.d/15-php71-php.conf", $event);
-    templates2events("/etc/httpd/conf.modules.d/15-php70-php.conf", $event);
-    templates2events("/etc/httpd/conf.modules.d/10-php56-php.conf", $event);
-    templates2events("/etc/httpd/conf.modules.d/10-php.conf", $event);
     templates2events("/etc/httpd/conf.d/virtualhosts.conf", $event);
+    templates2events("/etc/httpd/conf.d/www.conf", $event);
 
     event_services($event, 'httpd' => 'reload');
     event_services($event, 'php56-php-fpm' => 'restart');
@@ -33,10 +30,7 @@ for my $event (qw(nethserver-php-update))
     templates2events("/opt/remi/php56/root/etc/php-fpm.d/www.conf", $event);
     templates2events("/etc/opt/remi/php71/php-fpm.d/www.conf", $event);
     templates2events("/etc/opt/remi/php70/php-fpm.d/www.conf", $event);
-    templates2events("/etc/httpd/conf.modules.d/15-php71-php.conf", $event);
-    templates2events("/etc/httpd/conf.modules.d/15-php70-php.conf", $event);
-    templates2events("/etc/httpd/conf.modules.d/10-php56-php.conf", $event);
-    templates2events("/etc/httpd/conf.modules.d/10-php.conf", $event);
+    templates2events("/etc/httpd/conf.d/www.conf", $event);
 
     event_services($event, 'httpd' => 'reload');
     event_services($event, 'php56-php-fpm' => 'restart');

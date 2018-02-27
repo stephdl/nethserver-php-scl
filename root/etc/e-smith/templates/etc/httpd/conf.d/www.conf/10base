@@ -1,0 +1,18 @@
+{
+my $php = $httpd{'PhpVersion'} || 'default';
+return '# Use the default php version' if ($php eq 'default');
+
+my $tcp; 
+$tcp = 9056 if ($php eq 'php56');
+$tcp = 9070 if ($php eq 'php70');
+$tcp = 9071 if ($php eq 'php71');
+
+$OUT .= qq(
+# set a different php version
+<Directory "/var/www/html">
+  <FilesMatch \.php\$>
+        SetHandler "proxy:fcgi://127.0.0.1:$tcp"
+  </FilesMatch>
+</Directory>
+);
+}
