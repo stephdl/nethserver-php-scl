@@ -28,6 +28,9 @@ Requires: php71-php-pecl-zip, php71-php-mcrypt php71-php-pear, php71-php-fpm, ph
 AutoReqProv: no
 
 %changelog
+* Wed Feb 28 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.3-1-ns7
+- get rid of php-mod, use php-fpm for /var/www/html
+
 * Fri Jul 21 2017 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.2-1-ns7
 - the php socket name gets the php version
 
