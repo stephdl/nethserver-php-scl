@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.1.3
+%define version 1.1.4
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -13,21 +13,25 @@ BuildRequires: nethserver-devtools
 BuildArchitectures: x86_64
 Requires: scl-utils, nethserver-httpd, nethserver-phpsettings, nethserver-virtualhosts 
 
-Requires: php56 , php56-php , php56-php-bcmath , php56-php-gd , php56-php-imap , php56-php-ldap , php56-php-enchant
+Requires: php56 , php56-php-bcmath , php56-php-gd , php56-php-imap , php56-php-ldap , php56-php-enchant
 Requires: php56-php-mbstring , php56-php-pdo , php56-php-tidy , php56-php-mysqlnd , php56-php-xml , php56-php-soap
 Requires: php56-php-pecl-zip, php56-php-mcrypt, php56-php-fpm , php56-php-pgsql
 
-Requires: php70 , php70-php , php70-php-bcmath , php70-php-gd , php70-php-imap , php70-php-ldap , php70-php-enchant
+Requires: php70 , php70-php-bcmath , php70-php-gd , php70-php-imap , php70-php-ldap , php70-php-enchant
 Requires: php70-php-mbstring , php70-php-pdo , php70-php-tidy , php70-php-mysqlnd , php70-php-xml , php70-php-soap
 Requires: php70-php-pecl-zip, php70-php-mcrypt, php70-php-pear, php70-php-fpm , php70-php-pgsql
 
-Requires: php71 , php71-php , php71-php-bcmath , php71-php-gd , php71-php-imap , php71-php-ldap , php71-php-enchant
+Requires: php71 , php71-php-bcmath , php71-php-gd , php71-php-imap , php71-php-ldap , php71-php-enchant
 Requires: php71-php-mbstring , php71-php-pdo , php71-php-tidy , php71-php-mysqlnd , php71-php-xml , php71-php-soap
 Requires: php71-php-pecl-zip, php71-php-mcrypt php71-php-pear, php71-php-fpm, php71-php-pgsql
 
 AutoReqProv: no
 
 %changelog
+* Sat Mar 03 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.4-1-ns7
+- php56-php php70-php php71-php removed 
+- get rid of php-mod completely
+
 * Wed Feb 28 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.3-1-ns7
 - get rid of php-mod, use php-fpm for /var/www/html
 
