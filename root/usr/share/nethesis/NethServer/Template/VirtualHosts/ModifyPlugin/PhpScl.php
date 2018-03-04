@@ -9,4 +9,5 @@ echo $view->fieldsetSwitch('Status', 'enabled', $view::FIELDSETSWITCH_CHECKBOX)-
         ->insert($view->radioButton('PhpVersion', 'php56'))
         ->insert($view->radioButton('PhpVersion', 'php70'))
         ->insert($view->radioButton('PhpVersion', 'php71'))
+        ->insert($view->radioButton('PhpVersion', 'php72'))
 );

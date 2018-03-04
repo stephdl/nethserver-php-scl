@@ -3,16 +3,22 @@
 use esmith::Build::CreateLinks qw(:all);
 
 my $event = 'nethserver-php-scl-update';
+my @templates = qw(
+    /opt/remi/php56/root/etc/php.ini
+    /etc/opt/remi/php70/php.ini
+    /etc/opt/remi/php71/php.ini
+    /etc/opt/remi/php72/php.ini
+    /opt/remi/php56/root/etc/php-fpm.d/www.conf
+    /etc/opt/remi/php72/php-fpm.d/www.conf
+    /etc/opt/remi/php71/php-fpm.d/www.conf
+    /etc/opt/remi/php70/php-fpm.d/www.conf
+    );
+
 
 event_actions($event,
 'initialize-default-databases' => '00');
 
-    templates2events("/opt/remi/php56/root/etc/php.ini", $event);
-    templates2events("/etc/opt/remi/php70/php.ini", $event);
-    templates2events("/etc/opt/remi/php71/php.ini", $event);
-    templates2events("/opt/remi/php56/root/etc/php-fpm.d/www.conf", $event);
-    templates2events("/etc/opt/remi/php71/php-fpm.d/www.conf", $event);
-    templates2events("/etc/opt/remi/php70/php-fpm.d/www.conf", $event);
+    event_templates($event, @templates);
     templates2events("/etc/httpd/conf.d/virtualhosts.conf", $event);
     templates2events("/etc/httpd/conf.d/www.conf", $event);
 
@@ -20,22 +26,19 @@ event_actions($event,
     event_services($event, 'php56-php-fpm' => 'restart');
     event_services($event, 'php70-php-fpm' => 'restart');
     event_services($event, 'php71-php-fpm' => 'restart');
+    event_services($event, 'php72-php-fpm' => 'restart');
 
 for my $event (qw(nethserver-php-update))
 {
 
-    templates2events("/opt/remi/php56/root/etc/php.ini", $event);
-    templates2events("/etc/opt/remi/php70/php.ini", $event);
-    templates2events("/etc/opt/remi/php71/php.ini", $event);
-    templates2events("/opt/remi/php56/root/etc/php-fpm.d/www.conf", $event);
-    templates2events("/etc/opt/remi/php71/php-fpm.d/www.conf", $event);
-    templates2events("/etc/opt/remi/php70/php-fpm.d/www.conf", $event);
+    event_templates($event, @templates);
     templates2events("/etc/httpd/conf.d/www.conf", $event);
 
     event_services($event, 'httpd' => 'reload');
     event_services($event, 'php56-php-fpm' => 'restart');
     event_services($event, 'php70-php-fpm' => 'restart');
     event_services($event, 'php71-php-fpm' => 'restart');
+    event_services($event, 'php72-php-fpm' => 'restart');
 }
 
 for my $event (qw(
@@ -55,5 +58,6 @@ vhost-delete ))
 {
     event_services($event, 'php56-php-fpm' => 'reload');
     event_services($event, 'php70-php-fpm' => 'reload');
-    event_services($event, 'php71-php-fpm' => 'reload');
+    event_services($event, 'php71-php-fpm' => 'restart');
+    event_services($event, 'php72-php-fpm' => 'restart');
 }

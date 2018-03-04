@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.1.4
+%define version 1.2.0
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -25,9 +25,16 @@ Requires: php71 , php71-php-bcmath , php71-php-gd , php71-php-imap , php71-php-l
 Requires: php71-php-mbstring , php71-php-pdo , php71-php-tidy , php71-php-mysqlnd , php71-php-xml , php71-php-soap
 Requires: php71-php-pecl-zip, php71-php-mcrypt php71-php-pear, php71-php-fpm, php71-php-pgsql
 
+Requires: php72 , php72-php-bcmath , php72-php-gd , php72-php-imap , php72-php-ldap , php72-php-enchant
+Requires: php72-php-mbstring , php72-php-pdo , php72-php-tidy , php72-php-mysqlnd , php72-php-xml , php72-php-soap
+Requires: php72-php-pecl-zip, php72-php-mcrypt php72-php-pear, php72-php-fpm, php72-php-pgsql
+
 AutoReqProv: no
 
 %changelog
+* Sun Mar 04 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.2.0-1-ns7
+- Php72 available
+
 * Sat Mar 03 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.1.4-1-ns7
 - php56-php php70-php php71-php removed 
 - get rid of php-mod completely

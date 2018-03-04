@@ -7,6 +7,7 @@ echo $view->panel()
         ->insert($view->radioButton('PhpVersion', 'php56'))
         ->insert($view->radioButton('PhpVersion', 'php70'))
         ->insert($view->radioButton('PhpVersion', 'php71'))
+        ->insert($view->radioButton('PhpVersion', 'php72'))
 ;
 echo $view->buttonList($view::BUTTON_SUBMIT | $view::BUTTON_HELP);
 ?>

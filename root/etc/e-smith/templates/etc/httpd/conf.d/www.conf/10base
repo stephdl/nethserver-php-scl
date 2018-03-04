@@ -6,6 +6,7 @@ my $tcp;
 $tcp = 9056 if ($php eq 'php56');
 $tcp = 9070 if ($php eq 'php70');
 $tcp = 9071 if ($php eq 'php71');
+$tcp = 9072 if ($php eq 'php72');
 
 $OUT .= qq(
 # set a different php version

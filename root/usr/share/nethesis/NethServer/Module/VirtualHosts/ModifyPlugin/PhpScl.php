@@ -24,7 +24,7 @@ class  PhpScl  extends \Nethgui\Controller\Table\RowPluginAction
 
         $schema = array(
             array('Status', Validate::SERVICESTATUS, Table::FIELD, 'status'),
-            array('PhpVersion', $this->createValidator()->memberOf('default','php56','php70','php71' ), Table::FIELD, 'PhpVersion'),
+            array('PhpVersion', $this->createValidator()->memberOf('default','php56','php70','php71','php72' ), Table::FIELD, 'PhpVersion'),
         );
 
         $this
