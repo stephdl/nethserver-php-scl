@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.2.0
+%define version 1.2.1
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -32,6 +32,9 @@ Requires: php72-php-pecl-zip, php72-php-mcrypt php72-php-pear, php72-php-fpm, ph
 AutoReqProv: no
 
 %changelog
+* Thu Apr 19 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.2.1-1-ns7
+- Php-fpm{56,70,71,72} now use  RunTimeDirectory & RuntimeDirectoryMode
+
 * Sun Mar 04 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.2.0-1-ns7
 - Php72 available
 
@@ -112,12 +115,9 @@ perl createlinks
 %install
 rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
-%{__mkdir_p} -p $RPM_BUILD_ROOT/var/run/php-fpm/
 
 rm -f %{name}-%{version}-filelist
-%{genfilelist} \
---dir /var/run/php-fpm/ 'attr(0775,root,apache)' \
-  $RPM_BUILD_ROOT > %{name}-%{version}-filelist
+%{genfilelist}  $RPM_BUILD_ROOT > %{name}-%{version}-filelist
 
 %clean
 rm -rf $RPM_BUILD_ROOT
