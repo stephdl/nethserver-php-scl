@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.2.1
+%define version 1.2.2
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -32,6 +32,9 @@ Requires: php72-php-pecl-zip, php72-php-mcrypt php72-php-pear, php72-php-fpm, ph
 AutoReqProv: no
 
 %changelog
+* Tue May 1 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.2.2-1-ns7
+- Use the correct phpXX-php-fpm runtime folder
+
 * Thu Apr 19 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.2.1-1-ns7
 - Php-fpm{56,70,71,72} now use  RunTimeDirectory & RuntimeDirectoryMode
 

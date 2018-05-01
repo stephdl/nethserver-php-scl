@@ -14,7 +14,7 @@ if ($PhpVersion ne 'default')
 # from Remi repository  instead of the default PHP\n";
 $OUT .= << "EOF";
 <FilesMatch \.php\$>
-  SetHandler "proxy:unix:/var/run/php-fpm/$VhostName-$PhpVersion.sock|fcgi://localhost/"
+  SetHandler "proxy:unix:/var/run/$PhpVersion-php-fpm/$VhostName-$PhpVersion.sock|fcgi://localhost/"
 </FilesMatch>
 EOF
     }
