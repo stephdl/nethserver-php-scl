@@ -29,9 +29,9 @@ Requires: php72 , php72-php-bcmath , php72-php-gd , php72-php-imap , php72-php-l
 Requires: php72-php-mbstring , php72-php-pdo , php72-php-tidy , php72-php-mysqlnd , php72-php-xml , php72-php-soap
 Requires: php72-php-pecl-zip, php72-php-mcrypt php72-php-pear, php72-php-fpm, php72-php-pgsql
 
-Requires: php73 , php73-php-bcmath , php73-php-gd , php73-php-imap , php73-php-ldap , php73-php-enchant
-Requires: php73-php-mbstring , php73-php-pdo , php73-php-tidy , php73-php-mysqlnd , php73-php-xml , php73-php-soap
-Requires: php73-php-pecl-zip, php73-php-pecl-mcrypt ,  php73-php-pear, php73-php-fpm, php73-php-pgsql
+#Requires: php73 , php73-php-bcmath , php73-php-gd , php73-php-imap , php73-php-ldap , php73-php-enchant
+#Requires: php73-php-mbstring , php73-php-pdo , php73-php-tidy , php73-php-mysqlnd , php73-php-xml , php73-php-soap
+#Requires: php73-php-pecl-zip, php73-php-pecl-mcrypt ,  php73-php-pear, php73-php-fpm, php73-php-pgsql
 
 AutoReqProv: no
 
