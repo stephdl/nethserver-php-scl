@@ -1,0 +1,6 @@
+mysql.allow_persistent                 = On
+include_path                           = ".:/opt/remi/php73/root/usr/share/pear:/opt/remi/php73/root/usr/share/php:/usr/share/pear"
+doc_root                               =
+user_dir                               =
+extension_dir                          = /opt/remi/php73/root/usr/lib64/php/modules
+enable_dl                              = On
