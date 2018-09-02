@@ -8,7 +8,7 @@ Release: %{release}%{?dist}
 License: GPL
 Group: Administration
 Source: %{name}-%{version}.tar.gz
-BuildRoot: /var/tmp/e-smith-buildroot
+#BuildRoot: /var/tmp/e-smith-buildroot
 BuildRequires: nethserver-devtools
 BuildArchitectures: x86_64
 Requires: scl-utils, nethserver-httpd, nethserver-phpsettings, nethserver-virtualhosts 
