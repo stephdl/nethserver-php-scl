@@ -8,7 +8,9 @@ my @templates = qw(
     /etc/opt/remi/php70/php.ini
     /etc/opt/remi/php71/php.ini
     /etc/opt/remi/php72/php.ini
+    /etc/opt/remi/php73/php.ini
     /opt/remi/php56/root/etc/php-fpm.d/www.conf
+    /etc/opt/remi/php73/php-fpm.d/www.conf
     /etc/opt/remi/php72/php-fpm.d/www.conf
     /etc/opt/remi/php71/php-fpm.d/www.conf
     /etc/opt/remi/php70/php-fpm.d/www.conf
@@ -27,6 +29,7 @@ event_actions($event,
     event_services($event, 'php70-php-fpm' => 'restart');
     event_services($event, 'php71-php-fpm' => 'restart');
     event_services($event, 'php72-php-fpm' => 'restart');
+    event_services($event, 'php73-php-fpm' => 'restart');
 
 for my $event (qw(nethserver-php-update))
 {
@@ -39,6 +42,7 @@ for my $event (qw(nethserver-php-update))
     event_services($event, 'php70-php-fpm' => 'restart');
     event_services($event, 'php71-php-fpm' => 'restart');
     event_services($event, 'php72-php-fpm' => 'restart');
+    event_services($event, 'php73-php-fpm' => 'restart');
 }
 
 for my $event (qw(
@@ -60,4 +64,5 @@ vhost-delete ))
     event_services($event, 'php70-php-fpm' => 'reload');
     event_services($event, 'php71-php-fpm' => 'restart');
     event_services($event, 'php72-php-fpm' => 'restart');
+    event_services($event, 'php73-php-fpm' => 'restart');
 }

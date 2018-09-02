@@ -1,14 +1,13 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.2.3
+%define version 1.2.4
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
-Group: Administration
+Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
-BuildRoot: /var/tmp/e-smith-buildroot
 BuildRequires: nethserver-devtools
 BuildArchitectures: x86_64
 Requires: scl-utils, nethserver-httpd, nethserver-phpsettings, nethserver-virtualhosts 
@@ -29,9 +28,21 @@ Requires: php72 , php72-php-bcmath , php72-php-gd , php72-php-imap , php72-php-l
 Requires: php72-php-mbstring , php72-php-pdo , php72-php-tidy , php72-php-mysqlnd , php72-php-xml , php72-php-soap
 Requires: php72-php-pecl-zip, php72-php-mcrypt php72-php-pear, php72-php-fpm, php72-php-pgsql
 
-AutoReqProv: no
+Requires: php73 , php73-php-bcmath , php73-php-gd , php73-php-imap , php73-php-ldap , php73-php-enchant
+Requires: php73-php-mbstring , php73-php-pdo , php73-php-tidy , php73-php-mysqlnd , php73-php-xml , php73-php-soap
+Requires: php73-php-pecl-zip, php73-php-pear, php73-php-fpm, php73-php-pgsql
+
+
+
+
+%description
+Allow to use different versions of php whith a cgi script.
+
 
 %changelog
+* Mon Aug 3 2018 stephane de labrusse <stephdl@de-labrusse.fr> 1.2.4-1-ns7
+- Support for php73-beta3
+
 * Wed May 2 2018 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.2.3-1-ns7
 - explain in translation the apache root folder
 
@@ -108,9 +119,6 @@ AutoReqProv: no
 * Fri Nov 7 2014 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.1-1
 - Initial release to sme9
 
-%description
-Allow to use different versions of php whith a cgi script.
-
 %prep
 %setup
 
@@ -121,16 +129,9 @@ perl createlinks
 %install
 rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
-
-rm -f %{name}-%{version}-filelist
-%{genfilelist}  $RPM_BUILD_ROOT > %{name}-%{version}-filelist
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%pre
-
-%preun
+rm -f %{name}-%{version}-%{release}-filelist
+%{genfilelist} $RPM_BUILD_ROOT \
+> %{name}-%{version}-%{release}-filelist
 
 %post
 %postun
@@ -180,7 +181,10 @@ echo "#
   </IfModule>
 </IfModule>" > /etc/httpd/conf.modules.d/15-php71-php.conf
 
-%files -f %{name}-%{version}-filelist
+%clean 
+rm -rf $RPM_BUILD_ROOT
+
+%files -f %{name}-%{version}-%{release}-filelist
 %defattr(-,root,root)
-%doc COPYING
 %dir %{_nseventsdir}/%{name}-update
+%doc COPYING
