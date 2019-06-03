@@ -22,15 +22,15 @@ Requires: php70-php-pecl-zip, php70-php-mcrypt, php70-php-pear, php70-php-fpm , 
 
 Requires: php71 , php71-php-bcmath , php71-php-gd , php71-php-imap , php71-php-ldap , php71-php-enchant
 Requires: php71-php-mbstring , php71-php-pdo , php71-php-tidy , php71-php-mysqlnd , php71-php-xml , php71-php-soap
-Requires: php71-php-pecl-zip, php71-php-mcrypt php71-php-pear, php71-php-fpm, php71-php-pgsql
+Requires: php71-php-pecl-zip, php71-php-mcrypt php71-php-pear, php71-php-fpm, php71-php-pgsql, php71-php-opcache
 
 Requires: php72 , php72-php-bcmath , php72-php-gd , php72-php-imap , php72-php-ldap , php72-php-enchant
 Requires: php72-php-mbstring , php72-php-pdo , php72-php-tidy , php72-php-mysqlnd , php72-php-xml , php72-php-soap
-Requires: php72-php-pecl-zip, php72-php-mcrypt php72-php-pear, php72-php-fpm, php72-php-pgsql
+Requires: php72-php-pecl-zip, php72-php-mcrypt php72-php-pear, php72-php-fpm, php72-php-pgsql, php72-php-opcache
 
 Requires: php73 , php73-php-bcmath , php73-php-gd , php73-php-imap , php73-php-ldap , php73-php-enchant
 Requires: php73-php-mbstring , php73-php-pdo , php73-php-tidy , php73-php-mysqlnd , php73-php-xml , php73-php-soap
-Requires: php73-php-pecl-zip, php73-php-pear, php73-php-fpm, php73-php-pgsql
+Requires: php73-php-pecl-zip, php73-php-pear, php73-php-fpm, php73-php-pgsql, php73-php-opcache
 
 
 
