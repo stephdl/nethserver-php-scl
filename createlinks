@@ -14,6 +14,9 @@ my @templates = qw(
     /etc/opt/remi/php72/php-fpm.d/www.conf
     /etc/opt/remi/php71/php-fpm.d/www.conf
     /etc/opt/remi/php70/php-fpm.d/www.conf
+    /etc/opt/remi/php73/php.d/20-opcache.ini
+    /etc/opt/remi/php72/php.d/20-opcache.ini
+    /etc/opt/remi/php71/php.d/20-opcache.ini
     );
 
 
