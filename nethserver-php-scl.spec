@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.2.5
+%define version 1.2.6
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -40,6 +40,9 @@ Allow to use different versions of php whith a cgi script.
 
 
 %changelog
+* Wed Jun 5 2019 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.2.6-1
+- Enable remi-safe repo with  software-repos-save
+
 * Mon Jun 3 2019 stephane de labrusse <stephdl@de-labrusse.fr> 1.2.5-1-ns7
 - Enable opcache for php71,php72,php74
 
