@@ -21,7 +21,9 @@ my @templates = qw(
 
 
 event_actions($event,
-'initialize-default-databases' => '00');
+'initialize-default-databases' => '00',
+'remiSafe_enablerepo' => '10'
+);
 
     event_templates($event, @templates);
     templates2events("/etc/httpd/conf.d/virtualhosts.conf", $event);
