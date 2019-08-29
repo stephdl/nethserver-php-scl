@@ -9,3 +9,4 @@ $L['PhpVersion_php70_label'] = 'Php 70 version';
 $L['PhpVersion_php71_label'] = 'Php 71 version';
 $L['PhpVersion_php72_label'] = 'Php 72 version';
 $L['PhpVersion_php73_label'] = 'Php 73 version';
+$L['PhpVersion_php74_label'] = 'Php 74 version';

@@ -4,7 +4,7 @@ Php Software Collection
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Use a different version of php as with php-fpm from PHP software Collection of Remi repository.
-The version  php56, php70, php71, php72, php73 are available and launched one at a time, only for your Virtualhost.
+The version  php56, php70, php71, php72, php73 php74 are available and launched one at a time, only for your Virtualhost.
 
 If you need to adjust settings to PHP, then you must adjust them in the Tab *Php Settings*, the modifications are valid only for your virtualhost
 
@@ -15,6 +15,6 @@ How install more php rpm
 
     yum list available php\* --disablerepo=* --enablerepo=remi-safe
 
-    If you want to install a rpm for all php version (php56,php70,php71,php72,php73)
+    If you want to install a rpm for all php version (php56,php70,php71,php72,php73,php74)
 
-    yum install php56-php-dba php70-php-dba php71-php-dba php72-php-dba php73-php-dba
+    yum install php56-php-dba php70-php-dba php71-php-dba php72-php-dba php73-php-dba php74-php-dba
