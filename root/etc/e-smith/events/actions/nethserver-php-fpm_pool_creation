@@ -9,7 +9,8 @@ my @outDir = ('/opt/remi/php56/root/etc/php-fpm.d/',
              '/etc/opt/remi/php70/php-fpm.d/',
              '/etc/opt/remi/php71/php-fpm.d/',
              '/etc/opt/remi/php72/php-fpm.d/',
-             '/etc/opt/remi/php73/php-fpm.d/'
+             '/etc/opt/remi/php73/php-fpm.d/',
+             '/etc/opt/remi/php74/php-fpm.d/'
          );
 
 #We remove file before to recreate it
@@ -54,6 +55,10 @@ foreach my $vhost ($vdb->get_all_by_prop('type'=>'vhost')) {
     elsif ($vhostData{phpFpm} eq 'php73') {
         $path = "/etc/opt/remi/php73/php-fpm.d/www.conf" if ($vhostData{phpFpm} eq 'php73');
         $out = "/etc/opt/remi/php73/php-fpm.d/" if ($vhostData{phpFpm} eq 'php73');
+    }
+    elsif ($vhostData{phpFpm} eq 'php74') {
+        $path = "/etc/opt/remi/php74/php-fpm.d/www.conf" if ($vhostData{phpFpm} eq 'php74');
+        $out = "/etc/opt/remi/php74/php-fpm.d/" if ($vhostData{phpFpm} eq 'php74');
     }
 
     $OUT .= esmith::templates::processTemplate({
