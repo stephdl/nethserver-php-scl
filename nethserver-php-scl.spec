@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.2.6
+%define version 1.2.7
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -33,13 +33,18 @@ Requires: php73-php-mbstring , php73-php-pdo , php73-php-tidy , php73-php-mysqln
 Requires: php73-php-pecl-zip, php73-php-pear, php73-php-fpm, php73-php-pgsql, php73-php-opcache
 
 
-
+Requires: php74 , php74-php-bcmath , php74-php-gd , php74-php-imap , php74-php-ldap , php74-php-enchant
+Requires: php74-php-mbstring , php74-php-pdo , php74-php-tidy , php74-php-mysqlnd , php74-php-xml , php74-php-soap
+Requires: php74-php-pecl-zip, php74-php-pear, php74-php-fpm, php74-php-pgsql, php74-php-opcache
 
 %description
 Allow to use different versions of php whith a cgi script.
 
 
 %changelog
+* Thu Aug 25 2019 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.2.7-1
+- Support for php74
+
 * Wed Jun 5 2019 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.2.6-1
 - Enable remi-safe repo with  software-repos-save
 
