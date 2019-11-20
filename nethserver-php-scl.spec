@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.2.7
+%define version 1.2.8
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -42,6 +42,9 @@ Allow to use different versions of php whith a cgi script.
 
 
 %changelog
+* Thu Nov 12 2019 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.2.8-1
+- Do not breack future php scl core
+
 * Thu Aug 25 2019 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.2.7-1
 - Support for php74
 
