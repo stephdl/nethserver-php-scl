@@ -3,6 +3,9 @@ use esmith::ConfigDB;
 my $vdb = esmith::ConfigDB->open_ro('vhosts') || die("Can't open vhosts db");
 my $db = esmith::ConfigDB->open_ro || die("Can't open config  db");
 
+$PhpRhVersion = $vdb->get_prop("$VhostName",'PhpRhVersion') || 'default';
+return ""  if ($PhpRhVersion ne 'default');
+
 my $PhpVersion = $vdb->get_prop("$VhostName",'PhpVersion') || 'default';
 
 
