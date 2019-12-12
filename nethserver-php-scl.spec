@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.2.9
+%define version 1.3.0
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -15,33 +15,41 @@ Requires: scl-utils, nethserver-httpd, nethserver-phpsettings, nethserver-virtua
 Requires: php56 , php56-php-bcmath , php56-php-gd , php56-php-imap , php56-php-ldap , php56-php-enchant
 Requires: php56-php-mbstring , php56-php-pdo , php56-php-tidy , php56-php-mysqlnd , php56-php-xml , php56-php-soap
 Requires: php56-php-pecl-zip, php56-php-mcrypt, php56-php-fpm , php56-php-pgsql
+Requires: php56-php-intl, php56-php-pecl-apcu
 
 Requires: php70 , php70-php-bcmath , php70-php-gd , php70-php-imap , php70-php-ldap , php70-php-enchant
 Requires: php70-php-mbstring , php70-php-pdo , php70-php-tidy , php70-php-mysqlnd , php70-php-xml , php70-php-soap
 Requires: php70-php-pecl-zip, php70-php-mcrypt, php70-php-pear, php70-php-fpm , php70-php-pgsql
+Requires: php70-php-intl, php70-php-pecl-apcu
 
 Requires: php71 , php71-php-bcmath , php71-php-gd , php71-php-imap , php71-php-ldap , php71-php-enchant
 Requires: php71-php-mbstring , php71-php-pdo , php71-php-tidy , php71-php-mysqlnd , php71-php-xml , php71-php-soap
 Requires: php71-php-pecl-zip, php71-php-mcrypt php71-php-pear, php71-php-fpm, php71-php-pgsql, php71-php-opcache
+Requires: php71-php-intl, php71-php-pecl-apcu
 
 Requires: php72 , php72-php-bcmath , php72-php-gd , php72-php-imap , php72-php-ldap , php72-php-enchant
 Requires: php72-php-mbstring , php72-php-pdo , php72-php-tidy , php72-php-mysqlnd , php72-php-xml , php72-php-soap
 Requires: php72-php-pecl-zip, php72-php-mcrypt php72-php-pear, php72-php-fpm, php72-php-pgsql, php72-php-opcache
+Requires: php72-php-intl, php72-php-pecl-apcu
 
 Requires: php73 , php73-php-bcmath , php73-php-gd , php73-php-imap , php73-php-ldap , php73-php-enchant
 Requires: php73-php-mbstring , php73-php-pdo , php73-php-tidy , php73-php-mysqlnd , php73-php-xml , php73-php-soap
 Requires: php73-php-pecl-zip, php73-php-pear, php73-php-fpm, php73-php-pgsql, php73-php-opcache
-
+Requires: php73-php-intl, php73-php-pecl-apcu
 
 Requires: php74 , php74-php-bcmath , php74-php-gd , php74-php-imap , php74-php-ldap , php74-php-enchant
 Requires: php74-php-mbstring , php74-php-pdo , php74-php-tidy , php74-php-mysqlnd , php74-php-xml , php74-php-soap
 Requires: php74-php-pecl-zip, php74-php-pear, php74-php-fpm, php74-php-pgsql, php74-php-opcache
+Requires: php74-php-intl, php74-php-pecl-apcu
 
 %description
 Allow to use different versions of php whith a cgi script.
 
 
 %changelog
+* Tue Dec 12 2019 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.3.0-1
+- Added php dependencies (apcu,intl)
+
 * Thu Nov 12 2019 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.2.9-1
 - Do not breack future php scl core
 
