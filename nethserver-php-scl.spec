@@ -45,6 +45,76 @@ Requires: php74-php-intl, php74-php-pecl-apcu
 %description
 Allow to use different versions of php whith a cgi script.
 
+%prep
+%setup
+
+%build
+%{makedocs}
+perl createlinks
+
+%install
+rm -rf $RPM_BUILD_ROOT
+(cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
+rm -f %{name}-%{version}-%{release}-filelist
+%{genfilelist} $RPM_BUILD_ROOT \
+> %{name}-%{version}-%{release}-filelist
+
+%post
+%postun
+#we write in former state all php.conf files
+
+##PHP54
+echo "#
+# PHP is an HTML-embedded scripting language which attempts to make it
+# easy for developers to write dynamically generated webpages.
+#
+<IfModule prefork.c>
+  LoadModule php5_module modules/libphp5.so
+</IfModule>" > /etc/httpd/conf.modules.d/10-php.conf
+
+#PHP56
+echo "#
+# PHP is an HTML-embedded scripting language which attempts to make it
+# easy for developers to write dynamically generated webpages.
+#
+<IfModule prefork.c>
+  LoadModule php5_module modules/libphp56-php5.so
+</IfModule>" > /etc/httpd/conf.modules.d/10-php56-php.conf
+
+#php70
+echo "#
+# PHP is an HTML-embedded scripting language which attempts to make it
+# easy for developers to write dynamically generated webpages.
+#
+
+# Cannot load both php5 and php7 modules
+<IfModule !mod_php5.c>
+  <IfModule prefork.c>
+    LoadModule php7_module modules/libphp70.so
+  </IfModule>
+</IfModule>" > /etc/httpd/conf.modules.d/15-php70-php.conf
+
+#php71
+echo "#
+# PHP is an HTML-embedded scripting language which attempts to make it
+# easy for developers to write dynamically generated webpages.
+#
+
+# Cannot load both php5 and php7 modules
+<IfModule !mod_php5.c>
+  <IfModule prefork.c>
+    LoadModule php7_module modules/libphp71.so
+  </IfModule>
+</IfModule>" > /etc/httpd/conf.modules.d/15-php71-php.conf
+
+%clean 
+rm -rf $RPM_BUILD_ROOT
+
+%files -f %{name}-%{version}-%{release}-filelist
+%defattr(-,root,root)
+%dir %{_nseventsdir}/%{name}-update
+%doc COPYING
+
 
 %changelog
 * Tue Dec 12 2019 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.3.0-1
@@ -140,73 +210,3 @@ Allow to use different versions of php whith a cgi script.
 
 * Fri Nov 7 2014 Stephane de Labrusse <stephdl@de-labrusse.fr> 0.1-1
 - Initial release to sme9
-
-%prep
-%setup
-
-%build
-%{makedocs}
-perl createlinks
-
-%install
-rm -rf $RPM_BUILD_ROOT
-(cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
-rm -f %{name}-%{version}-%{release}-filelist
-%{genfilelist} $RPM_BUILD_ROOT \
-> %{name}-%{version}-%{release}-filelist
-
-%post
-%postun
-#we write in former state all php.conf files
-
-##PHP54
-echo "#
-# PHP is an HTML-embedded scripting language which attempts to make it
-# easy for developers to write dynamically generated webpages.
-#
-<IfModule prefork.c>
-  LoadModule php5_module modules/libphp5.so
-</IfModule>" > /etc/httpd/conf.modules.d/10-php.conf
-
-#PHP56
-echo "#
-# PHP is an HTML-embedded scripting language which attempts to make it
-# easy for developers to write dynamically generated webpages.
-#
-<IfModule prefork.c>
-  LoadModule php5_module modules/libphp56-php5.so
-</IfModule>" > /etc/httpd/conf.modules.d/10-php56-php.conf
-
-#php70
-echo "#
-# PHP is an HTML-embedded scripting language which attempts to make it
-# easy for developers to write dynamically generated webpages.
-#
-
-# Cannot load both php5 and php7 modules
-<IfModule !mod_php5.c>
-  <IfModule prefork.c>
-    LoadModule php7_module modules/libphp70.so
-  </IfModule>
-</IfModule>" > /etc/httpd/conf.modules.d/15-php70-php.conf
-
-#php71
-echo "#
-# PHP is an HTML-embedded scripting language which attempts to make it
-# easy for developers to write dynamically generated webpages.
-#
-
-# Cannot load both php5 and php7 modules
-<IfModule !mod_php5.c>
-  <IfModule prefork.c>
-    LoadModule php7_module modules/libphp71.so
-  </IfModule>
-</IfModule>" > /etc/httpd/conf.modules.d/15-php71-php.conf
-
-%clean 
-rm -rf $RPM_BUILD_ROOT
-
-%files -f %{name}-%{version}-%{release}-filelist
-%defattr(-,root,root)
-%dir %{_nseventsdir}/%{name}-update
-%doc COPYING
