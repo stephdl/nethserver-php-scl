@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.3.0
+%define version 1.3.1
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -117,6 +117,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Jun 30 2020 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.3.1-1
+- Enable remi-safe repo for subscription
 * Tue Dec 12 2019 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.3.0-1
 - Added php dependencies (apcu,intl)
 
