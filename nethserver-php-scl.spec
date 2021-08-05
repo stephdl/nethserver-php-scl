@@ -2,7 +2,7 @@ Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
 %define version 1.3.3
-%define release 1
+%define release 2
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -117,7 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Thu Aug 05 2021 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3.3
+* Thu Aug 05 2021 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3.3-2
 - Do not use the software-repo-save event
 
 * Thu Nov 19 2020 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.3.2-1
