@@ -20,6 +20,7 @@ my @templates = qw(
     /etc/opt/remi/php73/php.d/20-opcache.ini
     /etc/opt/remi/php72/php.d/20-opcache.ini
     /etc/opt/remi/php71/php.d/20-opcache.ini
+    /etc/nethserver/eorepo.conf
     );
 
 

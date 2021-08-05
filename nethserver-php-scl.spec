@@ -1,7 +1,7 @@
 Summary: Nethserver php REMI scl
 %define name nethserver-php-scl
 Name: %{name}
-%define version 1.3.2
+%define version 1.3.3
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -117,6 +117,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Aug 05 2021 stephane de Labrusse <stephdl@de-labrusse.fr> - 1.3.3
+- Do not use the software-repo-save event
+
 * Thu Nov 19 2020 Stephane de Labrusse  <stephdl@de-labrusse.fr> - 1.3.2-1
 - Remove the trailling / at the end of the Linux socket
 - https://community.nethserver.org/t/possible-bug-with-php-version-setting/16945
